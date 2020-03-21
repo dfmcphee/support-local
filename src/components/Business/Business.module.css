@@ -1,0 +1,26 @@
+.Business {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: var(--border-style);
+  justify-content: center;
+  align-items: center;
+}
+
+.Business:first-child {
+  border-top: var(--border-style);
+}
+
+.Content {
+  flex: 1 1 100%;
+  min-width: 0;
+  margin-right: 1rem;
+}
+
+.Content > * + * {
+  margin-top: 1rem;
+}
+
+.CTA {
+  flex: 0 0 auto;
+}
+

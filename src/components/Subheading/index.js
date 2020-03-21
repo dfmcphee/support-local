@@ -1,0 +1,2 @@
+export {Subheading} from './Subheading';
+
