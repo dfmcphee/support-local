@@ -1,8 +1,8 @@
 .Subheading {
-  font-size: 1.8rem;
+  font-size: 1.25rem;
   font-family: var(--heading-font);
   font-weight: 600;
-  line-height: 1;
+  line-height: 2.3125;
   margin: 0;
 }
 

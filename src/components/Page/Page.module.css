@@ -1,10 +1,12 @@
 .Page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .Content {
-    max-width: 1200px;
+  flex: 0 1 1200px;
+  min-width: 0;
 }
+
