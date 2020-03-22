@@ -17,6 +17,14 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-content`,
+        path: `${__dirname}/content`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {graphql} from 'gatsby';
 import Helmet from 'react-helmet';
 import {
   Business,
@@ -10,30 +11,21 @@ import {
 
 import './index.css';
 
-const businesses = [
-  {
-    name: 'Black Squirrel Books',
-    description: 'Selling surprise boxes of books in any genre.',
-    cta: 'Shop',
-    url: 'https://www.blacksquirrelbooks.ca'
+export default ({
+  data: {
+    allMarkdownRemark: { edges },
   },
-  {
-    name: 'Springroll House Cafe',
-    description: 'Authentic Vietnamese cuisine.',
-    cta: 'Order',
-    url: 'https://www.springrollhousecafe.com'
-  },
-  {
-    name: 'Ministry of Coffee',
-    description: 'Selling bags of great coffee beans.',
-    cta: 'Shop',
-    url: 'https://theministryofcoffee.com'
-  },
-];
-
-export default () => {
-  const businessMarkup = businesses.map(({name, description, cta, url}) => {
-    return <Business key={url} name={name} description={description} cta={cta} url={url} />;
+}) => {  
+  const businessMarkup = edges.map(({node}) => {
+    return (
+      <Business
+        key={node.id}
+        name={node.frontmatter.name}
+        description={node.frontmatter.description}
+        cta={node.frontmatter.action}
+        url={node.frontmatter.link}
+      />
+    );
   });
   
   return (
@@ -57,4 +49,22 @@ export default () => {
     </Page>
   );
 }
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___name] }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            name,
+            description,
+            link,
+            action
+          }
+        }
+      }
+    }
+  }
+`
 
