@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "business"
+    label: "Business"
+    folder: "content/business"
+    create: true
+    slug: "{{slug}}"
+    editor:
+     preview: false
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Action", name: "action", widget: "string" }
+      - { label: "Link", name: "link", widget: "string" }
+
