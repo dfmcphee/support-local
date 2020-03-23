@@ -19,4 +19,4 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Action", name: "action", widget: "string" }
       - { label: "Link", name: "link", widget: "string" }
-
+      - { label: "Category", name: "category", widget: "string" }
